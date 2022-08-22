@@ -1,0 +1,18 @@
+@import models.ReceiptRequest
+@import models.ReceiptReservation
+@import helpers.{NotificationsHelper}
+
+@(receiptRequest: ReceiptRequest)
+
+<tr class="total">
+    <td class='textRight' colspan="2">
+        <span style="font-size: 14px;">
+            @if(receiptRequest.isPrepaid()) {
+                @NotificationsHelper.get("receipt_total_amount")
+            } else {
+                @NotificationsHelper.get("receipt_total_estimated_amount")
+            }
+        </span>
+        <span>@receiptRequest.getGrandTotal()</span>
+    </td>
+</tr>

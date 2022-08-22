@@ -1,0 +1,5 @@
+@import models.ReceiptRequest
+
+@(receiptRequest: ReceiptRequest)
+
+Informasi syarat dan ketentuan pengiriman dapat dilihat pada <a href="@receiptRequest.getCompanyUrl()" target="_blank">@receiptRequest.getCompanyUrl()</a>

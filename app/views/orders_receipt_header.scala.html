@@ -1,0 +1,54 @@
+@import models.ReceiptRequest
+@import helpers.{NotificationsHelper}
+
+@(receiptRequest: ReceiptRequest, pageNumber: Integer, pageCount: Integer)
+
+<table class='header'>
+    <thead>
+    <tr>
+        <th></th>
+    </tr>
+    </thead>
+    <tr>
+        <td class='width50pct'>
+            <div style='display: flex;'>
+                <div class="title">@receiptRequest.getFromName</div>
+                @if(receiptRequest.getTaxIdentification() != null) {
+                <div class='taxId' style='padding: 8px 0;'>@NotificationsHelper.get("tax_id"):</div>
+                }
+                <div class='text grey'>
+                    @receiptRequest.getFromName
+
+                    @if(receiptRequest.getIdNumber() != null) {
+                    &nbsp;(ID: @receiptRequest.getIdNumber())
+                    }
+                </div>
+                <div class='text grey'>@receiptRequest.getFromContact</div>
+                <div class='text grey'>@receiptRequest.getFromEmail</div>
+                @if(receiptRequest.getBillingAddress() != null) {
+                <div class='text grey'>@NotificationsHelper.get("billing_address"):
+                    @receiptRequest.getBillingAddress()
+                </div>
+                <div class='text grey'>@NotificationsHelper.get("post_code"): @receiptRequest.getBillingPostcode()</div>
+                }
+            </div>
+        </td>
+        <td class='width50pct textRight'>
+            <span class='grey'>
+                @NotificationsHelper.get("receipt_page_of", pageNumber, pageCount)
+            </span>
+            <br/><br/>
+            <span class='title'>
+                #@receiptRequest.getInvoiceNumber()
+            </span>
+            <br/><br/>
+            <span>
+                @receiptRequest.getInvoiceDate()
+            </span>
+            <br/>
+            <span>
+                @receiptRequest.getInvoiceTime()
+            </span>
+        </td>
+    </tr>
+</table>

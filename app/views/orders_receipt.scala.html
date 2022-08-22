@@ -1,0 +1,22 @@
+@import models.ReceiptRequest
+@import models.ReceiptReservation
+@import models.ReceiptLedger
+
+@(receiptRequest: ReceiptRequest)
+
+<link href='https://fonts.googleapis.com/css?family=Noto Sans' rel='stylesheet'>
+<html lang='@receiptRequest.getLanguage()'>
+<head>
+    <title>Orders receipt</title>
+    <meta charset='utf-8'/>
+</head>
+<body>
+@orders_receipt_order_details_content_table(receiptRequest)
+
+@if(receiptRequest.isReceiptUpdated()) {
+@orders_receipt_edit_ledger(receiptRequest.getReceiptLedger())
+}
+
+@orders_receipt_tnc_table(receiptRequest)
+</body>
+</html>

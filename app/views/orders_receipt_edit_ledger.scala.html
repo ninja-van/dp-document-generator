@@ -1,0 +1,56 @@
+@import models.ReceiptRequest
+@import models.ReceiptReservation
+@import models.ReceiptLedger
+
+@(receiptLedger: ReceiptLedger)
+
+<div><b class="receipt-ledger-title">@receiptLedger.getTitle()</b></div>
+<div>
+    <table>
+        <tr>
+            <td>@receiptLedger.getDescription()</td>
+            <td class="receipt-ledger-total-cost"><b>@receiptLedger.getTotalCost()</b></td>
+        </tr>
+    </table>
+</div>
+
+<!-- Don't remove this <div> since it's needed to prevent runtime error from happening when the table is split between two pages -->
+<div>
+    <table class="receipt-ledger">
+        <tr class="receipt-ledger-header">
+            <td><b>@receiptLedger.getColumnDateTime()</b></td>
+            <td><b>@receiptLedger.getColumnTrackingId()</b></td>
+            <td><b>@receiptLedger.getColumnFieldDescription()</b></td>
+            <td><b>@receiptLedger.getColumnDeliveryFee()</b></td>
+        </tr>
+        @for(row <- receiptLedger.getRows()) {
+        <tr>
+            <td>@row.getTimestamp()</td>
+            <td>@row.getTrackingId()</td>
+            <td>
+                @if(row.getDescription() != null) {
+                @row.getDescription()
+                }
+                @if(row.getChanges().size() > 0) {
+                <div>
+                    <table>
+                        @for(change <- row.getChanges()) {
+                        <tr>
+                            <td><b>@change.getTitle():</b></td>
+                        </tr>
+                        <tr>
+                            <td><strike>@change.getOldValue()</strike></td>
+                        </tr>
+                        <tr>
+                            <td>@change.getNewValue()</td>
+                        </tr>
+                        }
+                    </table>
+                </div>
+                }
+            </td>
+            <td>@row.getDeliveryFee()</td>
+        </tr>
+        }
+    </table>
+</div>

@@ -1,0 +1,151 @@
+body, td, p {
+    font-family: 'Noto Sans';
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    color: #121212;
+}
+
+table {
+    margin: 0;
+    text-indent: 0;
+    width: 100%;
+    border-spacing: 0;
+    table-layout: fixed;
+}
+
+table.header td {
+    vertical-align: top;
+}
+
+.taxId {
+    font-size: 16px;
+    font-style: italic;
+    color: #868686;
+    font-weight: lighter;
+}
+
+table.orderDetails > tr > td {
+    padding: 0 10px;
+    vertical-align: top;
+}
+
+table.orderDetails > tr.orderHeader > td {
+    background: #f0f0f0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+table.orderDetails > tr.subHeader > td {
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: -10px;
+}
+
+table.orderDetails > tr.content > td {
+    color: #353535;
+    padding-bottom: 20px;
+}
+
+tr.content > td > table > tr > td {
+    padding-bottom: -5px;
+}
+
+table.orderDetails > tr.total  > td {
+    border-top: #f0f0f0 1px;
+    padding-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+table.priceBreakdown > tr > td.value {
+    text-align: right;
+    font-weight: bold;
+}
+
+.tnc {
+    padding-top: 20px;
+}
+
+.grey {
+    color: #868686;
+}
+
+.text {
+    padding: 1px 0;
+}
+
+.textRight {
+    text-align: right;
+}
+
+.width50pct {
+    width: 50%;
+}
+
+.width40pct {
+    width: 40%;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.orderHeader {
+    background: #f0f0f0;
+}
+
+.textCenter {
+    text-align: center;
+}
+
+table.footer {
+    margin-top: 12px;
+}
+
+table.footer td {
+    font-size: 9px;
+    padding: 0 5px;
+    border-top: solid 1px #DADADA;
+    width: 25%;
+    vertical-align: top;
+}
+
+tr.signature td{
+    font-size: 12px;
+    padding: 6px;
+    vertical-align: bottom;
+    text-align: center
+}
+
+.receipt-ledger-title {
+    font-size: 16px;
+    padding-bottom: 8px;
+}
+
+.receipt-ledger-total-cost {
+    font-size: 14px;
+    text-align: right;
+}
+
+.receipt-ledger {
+    margin-top: 8px;
+    border-top: solid 1px #f0f0f0;
+    border-left: solid 1px #f0f0f0;
+    border-right: solid 1px #f0f0f0;
+}
+
+.receipt-ledger-header {
+    background: #f0f0f0;
+}
+
+.receipt-ledger tr td {
+    text-align: left;
+    vertical-align: top;
+}
+
+.receipt-ledger > tr > td {
+    border-bottom: solid 1px #f0f0f0;
+    padding-left: 4px;
+    padding-bottom: 4px;
+}

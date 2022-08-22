@@ -1,0 +1,20 @@
+p {
+    font-size: 12px;
+    line-height: 0.8;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.large {
+    font-size: 18px;
+}
+
+.space {
+    padding: 6px;
+}
+
+.to-from {
+    width: 45px;
+}

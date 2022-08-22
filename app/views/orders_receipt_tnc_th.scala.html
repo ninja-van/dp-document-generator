@@ -1,0 +1,87 @@
+@import models.ReceiptRequest
+@import models.ReceiptReservation
+@import models.ReceiptLedger
+
+<table cellspacing='0' cellpadding='2' border='0' style="width: 100%;">
+    <tr style="width:100%">
+        <td align="left" valign="top" style="width: 2%; height:10px;"><font size="2">1.</font></td>
+        <td style="width:98%; height:10px;"><font size="2">กรุณแสดงใบเสร็จตัวจริงที่แสดงมูลค่าของสินค้าที่เสียหายหรือสูญหายเพื่อเป็นหลักฐานในการชดเชยค่าเสียหายทุกครั้ง</font>
+        </td>
+    </tr>
+    <tr style="width:100%">
+        <td align="left" valign="top" style="width: 2%; height:10px;"><font size="2">2.</font></td>
+        <td style="width:98%; height:10px;"><font size="2">เมื่อสั่งซื้อบริการของเราหรือส่งมอบสินค้าให้เรา
+            คุณยอมรับข้อกำหนดในนามผู้จัดส่ง ผู้รับมอบ และบุคคลอื่นใดที่มีหรืออ้างว่ามีส่วนได้เสียกับพัสดุ
+            ซึ่งคุณและบุคคลดังกล่าวจะผูกพันตามข้อตกลงและเงื่อนไข</font></td>
+    </tr>
+    <tr style="width:100%">
+        <td align="left" valign="top" style="width: 2%; height:10px;"><font size="2">3.</font></td>
+        <td style="width:98%; height:10px;"><font size="2">บริษัทฯ
+            ขอสงวนสิทธิ์ไม่รับประกันสินค้าที่อยู่ในหมวดหมู่ดังต่อไปนี้</font></td>
+    </tr>
+    <tr>
+        <td style="width:2%; height:10px;"></td>
+        <td style="width:98%; height:10px;">
+            <table cellspacing='0' cellpadding='2' border='0' style="width: 100%;">
+                <tr style="width:100%;">
+                    <td align="left" valign="top" style="width: 2%; height:10px;"><font size="2">a)</font></td>
+                    <td style="width: 98%; height:10px;"><font size="2">พัสดุที่มีมีความเสี่ยงที่จะแตกหักได้ เช่น แก้ว,
+                        กระจก, ของเปราะบาง, เซรามิค</font></td>
+                </tr>
+                <tr style="width:100%;">
+                    <td align="left" valign="top" style="width: 2%; height:10px;"><font size="2">b)</font></td>
+                    <td style="width: 98%; height:10px;"><font size="2">สัตว์ที่มีชีวิต,
+                        สินค้าผิดกฎหมายหรือต้องห้ามตามกฎหมายและข้อบังคับที่เกี่ยวข้อง, ของสะสม เช่น โบราณวัตถุ งานศิลป์,
+                        อาหาร, ยารักษาโรค, พืชและต้นไม้, ผลิตภัณฑ์ที่เป็นของเหลว เช่น น้ำ น้ำมัน ครีม ซีรั่ม เจล ฯลฯ,
+                        สินค้าที่สามารถติดไฟได้ และ สินค้าอันตรายรวมถึงสินค้าเสี่ยงอันตรายหรือเป็นพิษ วัตถุระเบิด
+                        อาวุธหรือปืน</font></td>
+                </tr>
+                <tr style="width:100%;">
+                    <td align="left" valign="top" style="width: 2%; height:10px;"><font size="2">c)</font></td>
+                    <td style="width: 98%; height:10px;"><font size="2">เอกสารที่มูลค่าเช่น ธนบัตร, เช็ค, บัตรกำนัล
+                        คูปอง วอชเชอร์ บัตรของขวัญต่าง ๆ</font></td>
+                </tr>
+                <tr style="width:100%;">
+                    <td align="left" valign="top" style="width: 2%; height:10px;"><font size="2">d)</font></td>
+                    <td style="width: 98%; height:10px;"><font size="2">พัสดุที่มีมูลค่าสูงและสามารถทดแทนใหม่ได้ เช่น
+                        สินค้าวัตถุโบราณ, ร่างหนังสือ, ต้นฉบับม้วน,ฟิล์ม, งานศิลปะ, สินค้าทำมือ และ
+                        เอกสารส่วนบุคคลที่ออกโดยหน่วยงานรัฐบาล เช่นบัตรประชาชน หนังสือเดินทาง ใบขับขี่ เป็นต้น
+                        หรือเอกสารที่มีข้อมูลเป็นความลับ</font></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr style="width:100%">
+        <td align="left" valign="top" style="width: 2%; height:10px;"><font size="2">4.</font></td>
+        <td style="width:98%; height:10px;"><font size="2">บริษัทฯ ขอสงวนสิทธิ์ในการเป็นผู้วินิจฉัย
+            และตัดสินว่าสินค้านั้น ๆ อยู่ในเงื่อนไขการรับประกันหรือไม่ คำตัดสินของบริษัทฯ ถือเป็นที่สิ้นสุด</font></td>
+    </tr>
+    <tr style="width:100%">
+        <td align="left" valign="top" style="width: 2%; height:10px;"><font size="2">5.</font></td>
+        <td style="width:98%; height:10px;"><font size="2">ความรับผิดชอบของทางบริษัทกับพัสดุใดๆนั้น
+            มีความสัมพันธ์โดยตรงกับการสูญหาย หรือ เสียหายของพัสดุชิ้นนั้นๆ กรณีสูญหายหรือเสียหาย ตามมูลค่าจริงไม่เกิน
+            2,000 บาท</font></td>
+    </tr>
+    <tr style="width:100%">
+        <td align="left" valign="top" style="width: 2%; height:10px;"><font size="2">6.</font></td>
+        <td style="width:98%; height:10px;"><font size="2">กรณีมีความประสงค์ ประกันสินค้าที่มีมูลค่ามากกว่า 2,000 บาท
+            กรุณาติดต่อเจ้าหน้าที่เพื่อซื้อประกันและสอบถามถึงเงื่อนไขการรับประกัน</font></td>
+    </tr>
+    <tr style="width:100%">
+        <td align="left" valign="top" style="width: 2%; height:10px;"><font size="2">7.</font></td>
+        <td style="width:98%; height:10px;"><font size="2">ในกรณีที่ทางบริษัทไม่สามารถติดต่อผู้รับปลายทางได้ใน 7
+            วันทำการ ทางบริษัทจะตีพัสดุกลับไปยังผู้ส่งต้นทางที่ถูกส่งพัสดุมาทันที่</font></td>
+    </tr>
+    <tr style="width:100%">
+        <td align="left" valign="top" style="width: 2%; height:10px;"><font size="2">8.</font></td>
+        <td style="width:98%; height:10px;"><font size="2">ในกรณีที่เกิดการจัดส่งสำเร็จแต่ล่าช้า
+            ซึ่งใช้เวลาเกินกว่าวันที่จัดส่งโดยประมาณ
+            ทางบริษัทขอสงวนสิทธิ์ที่จะไม่รับผิดชอบต่อความเสียหายโดยตรงหรือโดยอ้อมที่เกิดจากความล่าช้าในการจัดส่ง</font>
+        </td>
+    </tr>
+    <tr style="width:100%">
+        <td align="left" valign="top" style="width: 2%; height:10px;"><font size="2">9.</font></td>
+        <td style="width:98%; height:10px;"><font size="2">ทางบริษัทขอสงวนสิทธิ์ที่จะรับผิดชอบความเสียหายที่เกิดขึ้นเฉพาะในกรณีที่ผู้ส่งหรือผู้รับสินค้ามีใบเสร็จตัวจริงของพัสดุที่ได้รับความเสียหายหรือสูญหาย</font>
+        </td>
+    </tr>
+</table>

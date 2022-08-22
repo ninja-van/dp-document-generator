@@ -1,0 +1,14 @@
+@import models.ReceiptRequest
+@import models.ReceiptReservation
+
+@(receiptRequest: ReceiptRequest)
+
+
+<div>
+    <table class='orderDetails'>
+        @for(reservation <- receiptRequest.getReservations()) {
+        @orders_receipt_order_details_content_row(receiptRequest, reservation)
+        }
+        @orders_receipt_total_content_table(receiptRequest)
+    </table>
+</div>

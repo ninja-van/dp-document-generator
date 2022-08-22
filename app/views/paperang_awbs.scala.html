@@ -1,0 +1,20 @@
+@import models.PaperangAwb
+
+@(paperangAwbs: List[PaperangAwb])
+
+<html lang='en'>
+<head>
+    <title>Paperang AWBs</title>
+    <meta charset='utf-8'/>
+</head>
+<body>
+@for(paperangAwb <- paperangAwbs) {
+@paperang_awb(paperangAwb)
+}
+
+<div style='padding-top: 10px; padding-left: 14px;font-size:12px;'>
+    Source codes of this service can be accessed at https://github.com/ninja-van/dp-document-generator and may be
+    licensed pursuant to open source MIT license.
+</div>
+</body>
+</html>

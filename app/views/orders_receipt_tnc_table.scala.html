@@ -1,0 +1,49 @@
+@import models.ReceiptRequest
+@import models.ReceiptReservation
+@import models.ReceiptLedger
+@import helpers.{NotificationsHelper}
+
+@(receiptRequest: ReceiptRequest)
+
+<div class="tnc">
+    <p class='title'>
+        @NotificationsHelper.get("receipt_terms_and_conditions")
+    </p>
+    <br/>
+    <table>
+        <thead>
+        <tr>
+            <th></th>
+        </tr>
+        </thead>
+        <tr>
+            <td colspan='3'>
+                @receiptRequest.getCountry() match {
+                case "ID" => {@orders_receipt_tnc_id(receiptRequest)}
+                case "TH" => {@orders_receipt_tnc_th()}
+                case _ => {@orders_receipt_tnc_en()}
+                }
+            </td>
+        </tr>
+        <tr>
+            <td style="height:10px;"></td>
+        </tr>
+        <tr>
+            <td colspan='3'>
+                @NotificationsHelper.get("receipt_declaration_content")
+            </td>
+        </tr>
+        <tr class='signature'>
+            <td class='width33pct' style='height: 200px'></td>
+            <td class='width33pct' style='height: 200px'>
+                <hr class='initials'/>
+                @NotificationsHelper.get("receipt_staff_signature")
+            </td>
+            <td class='width33pct' style='height: 200px'>
+                <img src='' height='64px' width='128px'/>
+                <hr class='initials'/>
+                @NotificationsHelper.get("receipt_shipper_signature")
+            </td>
+        </tr>
+    </table>
+</div>

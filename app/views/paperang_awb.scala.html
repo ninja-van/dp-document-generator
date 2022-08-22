@@ -1,0 +1,61 @@
+@import models.PaperangAwb
+
+@(paperangAwb: PaperangAwb)
+
+<div style='height: 100%;'>
+    <div>
+        <div style='float: left;'>
+            <img src='@paperangAwb.getQrCodeImg()' height=100/>
+        </div>
+        <div style='float: right; text-align: right; padding-top: 8px; padding-right: 8px;'>
+            <img src='@paperangAwb.getLogoImg()' height=50/>
+            <p class='large bold' style='padding-right: 4px;'>
+                @if(paperangAwb.getIsCod()) {
+                COD
+                } else {
+                non-COD
+                }
+            </p>
+        </div>
+    </div>
+    <div>
+        <div style='float: left; padding: 0 13px;'>
+            <p class='bold'>@paperangAwb.getTrackingId()</p>
+            <div class='space'></div>
+            <p>Sort Code</p>
+            <p class='large bold'>@paperangAwb.getSortCode()</p>
+            <div class='space'></div>
+            <p>Postal Code</p>
+            <p class='large bold'>@paperangAwb.getPostalCode</p>
+        </div>
+        <div style='float: left;'>
+            <div>
+                <div class='to-from' style='float: left;'>
+                    <p>TO</p>
+                </div>
+                <div style='float: left;'>
+                    <p>@paperangAwb.getToAddress()</p>
+                    <div class='space'></div>
+                    <p class='large bold'>@paperangAwb.getToContact()</p>
+                    <p>@paperangAwb.getToName()</p>
+                </div>
+            </div>
+            <div class='space'></div>
+            <div>
+                <div class='to-from' style='float: left;'>
+                    <p>FROM</p>
+                </div>
+                <div style='float: left;'>
+                    <p>@paperangAwb.getFromName()</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style='padding-top: 10px; padding-left: 14px;'>
+        <img src='@paperangAwb.getBarcodeImg()' width=360/>
+    </div>
+    <div style='padding-top: 10px; padding-left: 14px;font-size:12px;'>
+        Source codes of this service can be accessed at https://github.com/ninja-van/dp-document-generator and may be
+        licensed pursuant to open source MIT license.
+    </div>
+</div>

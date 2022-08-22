@@ -1,0 +1,115 @@
+@import models.ReceiptRequest
+@import models.ReceiptReservation
+@import helpers.{NotificationsHelper}
+
+@(receiptRequest: ReceiptRequest, reservation: ReceiptReservation)
+
+@isNotEmptyOrNull(string: String) = @{
+string != null && !string.equals("") && !string.equals("-")
+}
+
+<tr class="orderHeader">
+    <td class='width50pct'>
+        @reservation.getTrackingId()
+    </td>
+    <td class='width50pct textRight'>
+        @reservation.getTotalAmount()
+    </td>
+</tr>
+<tr class='subHeader'>
+    <td class="width50pct">
+        @if(reservation.getPackImage() != null) {
+        @NotificationsHelper.get("receipt_scan_qr_code")
+        } else {
+        @NotificationsHelper.get("receipt_recipient_details")
+        }
+    </td>
+    <td class="width50pct">
+        @if(receiptRequest.isPrepaid()) {
+        @NotificationsHelper.get("receipt_price_breakdown")
+        } else {
+        @NotificationsHelper.get("receipt_estimated_price_breakdown")
+        }
+    </td>
+</tr>
+<tr class="content">
+    <td class='width50pct'>
+        <table>
+            @if(reservation.getPackImage() != null) {
+            <tr>
+                <td>
+                    <img
+                            src='@reservation.getImageUrl'
+                            height='100'
+                            width='100'
+                    />
+                </td>
+            </tr>
+            } else {
+            @if(isNotEmptyOrNull(reservation.getToName)) {
+            <tr>
+                <td>
+                    @reservation.getToName
+                </td>
+            </tr>
+            }
+            @if(isNotEmptyOrNull(reservation.getToContact)) {
+            <tr>
+                <td>
+                    @reservation.getToContact
+                </td>
+            </tr>
+            }
+            @if(isNotEmptyOrNull(reservation.getToAddress1)) {
+            <tr>
+                <td>
+                    @reservation.getToAddress1
+                </td>
+            </tr>
+            }
+            }
+        </table>
+    </td>
+    <td class='width50pct'>
+        <table class='priceBreakdown'>
+            <tr>
+                <td>
+                    @NotificationsHelper.get("receipt_delivery_fee", reservation.getWeight)
+                </td>
+                <td class='value'>
+                    @reservation.getDeliveryFee
+                </td>
+            </tr>
+            @if(isNotEmptyOrNull(reservation.getInsuranceValue())) {
+            <tr>
+                <td>
+                    @NotificationsHelper.get("receipt_insurance_fee", reservation.getInsuranceValue())
+                </td>
+                <td class='value'>
+                    @reservation.getInsuranceValue()
+                </td>
+            </tr>
+            }
+            <tr>
+                <td>
+                    @reservation.getGstDescription()
+                </td>
+                <td class='value'>
+                    @reservation.getGstValue()
+                </td>
+            </tr>
+            @if(reservation.getCodDescription() != null) {
+            <tr>
+                <td colspan="2">
+                    @NotificationsHelper.get("receipt_cod", reservation.getCodValue()) <br/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    @NotificationsHelper.get("receipt_cod_fee", reservation.getCodTotal())
+                </td>
+            </tr>
+            }
+        </table>
+    </td>
+</tr>

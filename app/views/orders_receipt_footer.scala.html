@@ -1,0 +1,27 @@
+@import helpers.{NotificationsHelper}
+@import models.ReceiptRequest
+@import config.Constants.SOURCE_CODE_URL
+@(receiptRequest: ReceiptRequest)
+
+<table class="footer">
+    <tr>
+        <td>
+        </td>
+        <td class='hint'>
+            @NotificationsHelper.get("receipt_keep_track_order_at_1") <br/>
+            @NotificationsHelper.get("receipt_keep_track_order_at_2") @receiptRequest.getLandingPageUrl() <br/>
+        </td>
+        <td class='hint text_center'>
+            @NotificationsHelper.get("receipt_contact_us_at_1") <br/>
+            @NotificationsHelper.get("receipt_contact_us_at_2") @receiptRequest.getSupportEmail()
+        </td>
+        <td class='hint textRight'>
+            &copy;2014-2022 <br/>
+            @receiptRequest.getCompanyName() <br/>
+            @if(receiptRequest.getTaxIdentification() != null) {
+            @receiptRequest.getTaxIdentification()
+            }
+        </td>
+    </tr>
+</table>
+<div style='font-size:10px;'>Source codes of this service can be accessed at @SOURCE_CODE_URL and may be licensed pursuant to open source MIT license.</div>
